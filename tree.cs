@@ -218,6 +218,15 @@ class Node<T>
                 Console.WriteLine("Postorder");
 
             }
+            private void InOrderDisplayTree(Node<T> current)
+            {
+                if (current != null)
+                {
+                    InOrderDisplayTree(current.left);
+                    Console.Write("({0}) ", current.data);
+                    InOrderDisplayTree(current.right);
+                }
+            }
                 private int max(int l, int r)
             {
                 return l > r ? l : r;
