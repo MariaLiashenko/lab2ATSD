@@ -95,7 +95,14 @@ class Node<T>
                     }
                 }
                 return current;
-        }
+            }
+            private int balance_factor(Node<T> current)
+            {
+                int l = getHeight(current.left);
+                int r = getHeight(current.right);
+                int b_factor = l - r;
+                return b_factor;
+            }
         }
     
     }
