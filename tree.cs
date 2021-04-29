@@ -96,6 +96,23 @@ class Node<T>
                 }
                 return current;
             }
+                private int max(int l, int r)
+            {
+                return l > r ? l : r;
+            }
+            private int getHeight(Node<T> current)
+            {
+                int height = 0;
+                if (current != null)
+                {
+                    int l = getHeight(current.left);
+                    //Console.WriteLine("l" +l);
+                    int r = getHeight(current.right);
+                    int m = max(l, r);
+                    height = m + 1;
+                }
+                return height;
+            }
             private int balance_factor(Node<T> current)
             {
                 int l = getHeight(current.left);
