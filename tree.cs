@@ -69,6 +69,33 @@ class Node<T>
                 }
                 return current;
             }
+            private Node<T> balance_tree(Node<T> current)
+            {
+                int b_factor = balance_factor(current);
+                if (b_factor > 1)
+                {
+                    if (balance_factor(current.left) > 0)
+                    {
+                        current = RotateLL(current);
+                    }
+                    else
+                    {
+                        current = RotateLR(current);
+                    }
+                }
+                else if (b_factor < -1)
+                {
+                    if (balance_factor(current.right) > 0)
+                    {
+                        current = RotateRL(current);
+                    }
+                    else
+                    {
+                        current = RotateRR(current);
+                    }
+                }
+                return current;
+        }
         }
     
     }
