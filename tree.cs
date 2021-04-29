@@ -100,6 +100,75 @@ class Node<T>
             {//and here
                 root = Delete(root, target);
             }
+                private Node<T> Delete(Node<T> current, T target)
+            {
+                Node<T> parent;
+                if (current == null)
+                { return null; }
+                else
+                {
+                    //left subtree<
+                    if (Comparer<T>.Default.Compare(current.data,target) == 1  )
+                    {
+                        current.left = Delete(current.left, target);
+                        if (balance_factor(current) == -2)//here
+                        {
+                            if (balance_factor(current.right) <= 0)
+                            {
+                                current = RotateRR(current);
+                            }
+                            else
+                            {
+                                current = RotateRL(current);
+                            }
+                        }
+                    }
+                    //right subtree>
+                    else if (Comparer<T>.Default.Compare(target, current.data) == 1 )
+                    {
+                        current.right = Delete(current.right, target);
+                        if (balance_factor(current) == 2)
+                        {
+                            if (balance_factor(current.left) >= 0)
+                            {
+                                current = RotateLL(current);
+                            }
+                            else
+                            {
+                                current = RotateLR(current);
+                            }
+                        }
+                    }
+                    //if target is found
+                    else
+                    {
+                        if (current.right != null)
+                        {
+                            //delete its inorder successor
+                            parent = current.right;
+                            while (parent.left != null)
+                            {
+                                parent = parent.left;
+                            }
+                            current.data = parent.data;
+                            current.right = Delete(current.right, parent.data);
+                            if (balance_factor(current) == 2)//rebalancing
+                            {
+                                if (balance_factor(current.left) >= 0)
+                                {
+                                    current = RotateLL(current);
+                                }
+                                else { current = RotateLR(current); }
+                            }
+                        }
+                        else
+                        {   //if current.left != null
+                            return current.left;
+                        }
+                    }
+            }
+            return current;
+        }
                 private int max(int l, int r)
             {
                 return l > r ? l : r;
