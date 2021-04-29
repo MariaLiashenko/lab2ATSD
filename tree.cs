@@ -239,6 +239,19 @@ class Node<T>
                     
                 }
             }
+            private void PostOrderDisplayTree(Node<T> current)
+            {
+            
+                if (current != null)
+                {
+                    PostOrderDisplayTree(current.left);
+                    PostOrderDisplayTree(current.right);
+                    Console.Write("({0}) ", current.data);
+                    
+
+
+                }
+            }
                 private int max(int l, int r)
             {
                 return l > r ? l : r;
