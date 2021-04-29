@@ -180,6 +180,29 @@ class Node<T>
                     Console.WriteLine("Nothing found!");
                 }
             }
+                private Node<T> Find(T target, Node<T> current)
+            {
+                //<
+                if (Comparer<T>.Default.Compare(current.data,target) == 1 )
+                {
+                    if (target.CompareTo(current.data) == 0)
+                    {
+                        return current;
+                    }
+                    else
+                        return Find(target, current.left);
+                }
+                else
+                {
+                    if (target.CompareTo(current.data) == 0)
+                    {
+                        return current;
+                    }
+                    else
+                        return Find(target, current.right);
+                }
+
+            }
                 private int max(int l, int r)
             {
                 return l > r ? l : r;
