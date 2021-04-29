@@ -227,6 +227,18 @@ class Node<T>
                     InOrderDisplayTree(current.right);
                 }
             }
+            private void PreOrderDisplayTree(Node<T> current)
+            {
+                
+                if (current != null)
+                { 
+                    Console.Write("({0}) ", current.data);
+                    PreOrderDisplayTree(current.left);
+                    PreOrderDisplayTree(current.right);
+                
+                    
+                }
+            }
                 private int max(int l, int r)
             {
                 return l > r ? l : r;
