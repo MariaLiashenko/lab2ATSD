@@ -96,6 +96,10 @@ class Node<T>
                 }
                 return current;
             }
+             public void Delete(T target)
+            {//and here
+                root = Delete(root, target);
+            }
                 private int max(int l, int r)
             {
                 return l > r ? l : r;
