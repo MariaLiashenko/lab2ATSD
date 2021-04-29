@@ -36,18 +36,18 @@ class Node<T>
                 root = node;
             }
             public void Add(T data)
-        {
-            Node<T> newItem = new Node<T>(data);
-            if (root == null)
             {
-                root = newItem;
-                //Console.WriteLine(newItem.data);
+                Node<T> newItem = new Node<T>(data);
+                if (root == null)
+                {
+                    root = newItem;
+                    //Console.WriteLine(newItem.data);
+                }
+                else
+                {
+                    root = RecursiveInsert(root, newItem);
+                }
             }
-            else
-            {
-                root = RecursiveInsert(root, newItem);
-            }
-        }
         }
     
     }
