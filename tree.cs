@@ -302,6 +302,28 @@ class Node<T>
                 parent.right = RotateLL(pivot);
                 return RotateRR(parent);
             }
+            //13
+        public AVL<T> SymmetricalBBST()
+            {
+                AVL<T> res = new AVL<T>(MakeSymmetricalTree(root));
+
+                return res;
+            }
+
+            private Node<T> MakeSymmetricalTree(Node<T> root)
+            {
+                if (root == null)
+                {
+                    return null;
+                }
+
+                Node<T> mirror = new Node<T>(root.data);
+                mirror.right = MakeSymmetricalTree(root.left);
+                mirror.left = MakeSymmetricalTree(root.right);
+                //Console.WriteLine();
+                //PreOrderDisplayTree(mirror);
+                return mirror;
+            }
         }
     
     }
