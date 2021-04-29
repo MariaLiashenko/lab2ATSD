@@ -203,6 +203,21 @@ class Node<T>
                 }
 
             }
+            public void DisplayTree()
+            {
+                if (root == null)
+                {
+                    Console.WriteLine("Tree is empty");
+                    return;
+                }
+                InOrderDisplayTree(root);
+                Console.WriteLine("Inorder");
+                PreOrderDisplayTree(root);
+                Console.WriteLine("Preorder");
+                PostOrderDisplayTree(root);
+                Console.WriteLine("Postorder");
+
+            }
                 private int max(int l, int r)
             {
                 return l > r ? l : r;
