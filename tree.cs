@@ -103,6 +103,32 @@ class Node<T>
                 int b_factor = l - r;
                 return b_factor;
             }
+                private Node<T> RotateRR(Node<T> parent)
+            {
+                Node<T> pivot = parent.right;
+                parent.right = pivot.left;
+                pivot.left = parent;
+                return pivot;
+            }
+            private Node<T> RotateLL(Node<T> parent)
+            {
+                Node<T> pivot = parent.left;
+                parent.left = pivot.right;
+                pivot.right = parent;
+                return pivot;
+            }
+            private Node<T> RotateLR(Node<T> parent)
+            {
+                Node<T> pivot = parent.left;
+                parent.left = RotateRR(pivot);
+                return RotateLL(parent);
+            }
+            private Node<T> RotateRL(Node<T> parent)
+            {
+                Node<T> pivot = parent.right;
+                parent.right = RotateLL(pivot);
+                return RotateRR(parent);
+            }
         }
     
     }
