@@ -169,6 +169,17 @@ class Node<T>
             }
             return current;
         }
+            public void Find(T key)
+            {
+                if (Find(key, root).data.CompareTo(key) == 0)
+                {
+                    Console.WriteLine("{0} was found!", key);
+                }
+                else
+                {
+                    Console.WriteLine("Nothing found!");
+                }
+            }
                 private int max(int l, int r)
             {
                 return l > r ? l : r;
